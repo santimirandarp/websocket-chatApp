@@ -1,0 +1,35 @@
+{
+  "name": "share",
+  "version": "0.0.1",
+  "description": "An application to chat with a group of friends.",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santimirandarp/share.git"
+  },
+  "keywords": [
+    "real",
+    "time",
+    "chat",
+    "share",
+    "ideas",
+    "chat",
+    "with",
+    "friends"
+  ],
+  "author": "Santiago Miranda",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/santimirandarp/share/issues"
+  },
+  "homepage": "https://github.com/santimirandarp/share#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0"
+  }
+}

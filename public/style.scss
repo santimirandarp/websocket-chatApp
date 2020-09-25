@@ -1,0 +1,71 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+html{font-size:16px}
+
+body { 
+  font: 1.5rem Montserrat, Helvetica, sans-serif;
+  background-color:rgba(10,10,10,0.4);
+  color:#fff;
+  height:100vh;
+  position:relative;
+  &::after, &::before{
+    background-color:rgba(10,10,10,0.4);
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    content:"";
+    z-index:-1;
+  }
+  &::after{
+    background: no-repeat url("godspeed-arabic.jpg");
+    background-size:cover;
+    background-position:center center;
+    z-index:-2;
+}}
+
+//dynamic area
+span{font-size:1rem;}
+#messages { //ul
+  list-style-type: none;
+  > li { 
+    padding: 1rem;
+    background:rgba(80, 48, 39,0.3);
+    &:nth-child(odd){ background:rgba(180,180,180,0.4); }
+}}
+
+
+/*form*/
+#bottomBar{
+  z-index:10;
+  position: fixed; 
+  bottom: 0;
+  width: 100%; 
+}
+form { 
+  /*form children*/
+  background: #000;
+  padding: 3px;
+  display:flex;
+  flex-direction:row;
+  input { 
+    border: 0;
+    padding: 10px;
+    width: 90%;
+    margin-right: 0.5%;
+    font-size:1.5rem;
+  }
+
+  button { 
+    cursor:pointer;
+    width: 9%;
+    background: rgb(130, 224, 255);
+    border: none;
+  } }
+
+
