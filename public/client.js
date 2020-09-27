@@ -1,14 +1,33 @@
-//without jquery this is very, very tedious.
-$(function(){
+//io() gets loaded from a script src 
 const socket = io();
-$("form").submit(e => {
-  e.preventDefault(); // prevents page reloading
-  //emits input value when submitting
-  socket.emit('chat message', $("#m").val())
+
+const ul = document.getElementById("messages")
+const nou=document.getElementById("nou") //number of users
+const newUser=document.getElementById("newUser") 
+const welcome=document.getElementById("welcome")
+
+//on submit input/form
+document.addEventListener("submit", e => {
+
+  e.preventDefault(); 
+  const msg = e.target.elements.m.value
+  e.target.elements.m.value="" //clear input.
+
+  socket.emit('chat message', msg) //input value to server
   return false;
+
 });
-//on incomming message
-socket.on('chat message', msg=> $("#messages").append(`<li>${msg}</li>`))
-socket.on("users", msg=> $("#nou").text(`Users: ${msg.nou}`))
+
+//data coming from server
+socket.on('chat message', msg => {
+  ul.innerHTML+=`
+    <li>
+      <span class="userInfo">user: ${msg}<sub>time</sub></span>
+    </li>`
+  ul.scrollTop=ul.scrollHeight;
 })
 
+//also data from server
+socket.on("users", msg => nou.innerHTML=`Users: ${msg.users}`)
+socket.on("newUser", msg => newUser.innerHTML=`${msg.newUser}`)
+socket.on("welcome", msg => welcome.innerHTML=`${msg.welcome}`)

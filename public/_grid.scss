@@ -1,0 +1,26 @@
+body{
+  display:grid;
+  height:100vh;
+  grid-template-columns:minmax(200px, 1fr) minmax(400px, 3fr);
+  grid-template-areas:
+  "aside main"
+}
+
+main {
+  grid-area:main;
+  display:grid;
+  #messages{
+    align-self:start;
+    overflow:auto;
+    height:90vh;
+    width:100%;
+  }
+  .bottomBar{
+    align-self:end; 
+    min-height:75px;
+    height:10vh;
+}}
+
+aside {
+  grid-area:aside;
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <title>~Chat</title>
+    <style>
+body{
+  background-color:#212121;
+  color:#f4f4f4;
+  display:grid;
+  place-items:center;
+}
+.logginForm{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+}
+    </style>
+
+  </head>
+
+  <body>
+      <form class="logginForm" method="GET" action="./chat.html">
+        <div>
+        <label  for="input">Name:</label>
+        <input name="User" type="text"  id="m" required autocomplete="off" />
+        </div>
+        <select name="Room">
+          <option value="science">Science</option>
+          <option value="programming">Programming</option>
+          <option value="life">Life</option>
+        </select>
+        <button type="submit">Send</button>
+      </form>
+  </body>
+</html>

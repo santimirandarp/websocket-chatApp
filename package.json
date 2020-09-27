@@ -4,8 +4,8 @@
   "description": "An application to chat with a group of friends.",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/santimirandarp/share#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.0",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
   }

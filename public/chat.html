@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link href="style.css" rel="stylesheet"/>
+    <title>~Chat</title>
+  </head>
+
+  <body>
+
+    <aside>
+      <p class="users__p">Users</p>
+      <ul id="users__ul"></ul> 
+      <button class="btn btn--leave">Leave</button>
+    </aside>
+
+    <main> 
+    <ul id="messages"></ul>
+
+    <section class="bottomBar"/>
+      <div class="info">
+        <span id="nou"></span>
+        <span id="newUser"></span>
+        <span id="welcome"></span>
+      </div>
+      <form action="">
+        <input id="m" required autocomplete="off" />
+        <button class="btn btn--send">Send</button>
+      </form>
+    </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./client.js"></script>
+  </body>
+</html>

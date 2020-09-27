@@ -1,0 +1,18 @@
+$bodyPaddingBottom:3.5rem;
+@mixin absoluteblock(){
+    position:absolute;
+    content:"";
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+  }
+
+@mixin bodybackground(){
+  background: no-repeat url("godspeed-arabic.jpg");
+  background-size:cover;
+  background-position:center center;
+  //when we scroll, we move the lines up (all that scrolls)
+  //but the background is fixed, it's like a layer below.
+  background-attachment:fixed;
+}

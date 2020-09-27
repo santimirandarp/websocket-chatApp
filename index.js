@@ -1,26 +1,40 @@
 //set-up
 const express = require("express")
 const app = express()
-const path = require("path")
 const http = require("http").createServer(app)
 const io = require("socket.io")(http)
+const port = process.env.PORT || 3000
+const path = require("path")
 
-//events fired
+//serve files
+app.get("/", (req, res)=> res.sendFile(path.join(__dirname, "public", "form.html")))
+app.get("/chat", (req, res)=> {
+  res.sendFile(path.join(__dirname, "public", "chat.html"))
+})
+
 let users = 0
+// a socket connects(imagine a tube)
 io.on("connection", socket=>{
   users++
-  io.emit("users", {nou:users})
-  socket.broadcast.emit("welcome", {msg:"New User Connected"})
-  socket.on("disconnect", (socket)=>
-    {
+  //any new connection, emits for all users
+  io.emit("users", {users:users})
+  
+  //emits for all but for the one connecting
+  socket.broadcast.emit("newUser", {newUser:"New User Connected"})
+
+  //emits only for the one connected
+  socket.emit("welcome", {welcome:`Welcome to the chat`})
+  
+  //if a socket disconnects
+  socket.on("disconnect", (socket)=> { //tell everyone
       users--
       io.emit("users", {nou:users, msg:"A user has left the room"})
     })
-  socket.on("chat message", msg => {
-    io.emit("chat message", msg)
-  })
+  
+  //if a socket emits a message, tell everyone
+  socket.on("chat message", msg => io.emit("chat message", msg))
 })
 
-app.get("/", (req, res)=> res.sendFile(path.join(__dirname, "public", "index.html")))
+
 app.use(express.static("public"))
-http.listen(3000, ()=>console.log("listening on port 3000"))
+http.listen(port, () => console.log(`listening on port ${port} `))
