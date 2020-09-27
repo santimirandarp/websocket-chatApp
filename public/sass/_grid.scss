@@ -1,9 +1,11 @@
+@use 'defs';
 body{
   display:grid;
-  height:100vh;
+  grid-column-gap:1rem;
   grid-template-columns:minmax(200px, 1fr) minmax(400px, 3fr);
   grid-template-areas:
-  "aside main"
+  "aside main";
+  height:100vh;
 }
 
 main {
@@ -12,15 +14,20 @@ main {
   #messages{
     align-self:start;
     overflow:auto;
-    height:90vh;
-    width:100%;
+    margin:auto;
+    width:90%;
   }
   .bottomBar{
     align-self:end; 
-    min-height:75px;
-    height:10vh;
 }}
 
 aside {
+  display:grid;
   grid-area:aside;
-}
+  .btn--leave{
+    align-self:end;
+  }
+  .users__p{
+  align-self:start;
+  justify-self:center;
+  }}

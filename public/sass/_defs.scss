@@ -1,4 +1,11 @@
+$mg-small:0.25rem;
+$mg:0.5rem;
+$mg-medium:1rem;
+$mg-left:1.5rem;
+$gybe-orange:#553227;
 $bodyPaddingBottom:3.5rem;
+$gybe-orange:#553227;
+$dim-black:rgba(10,10,10,0.4);
 @mixin absoluteblock(){
     position:absolute;
     content:"";

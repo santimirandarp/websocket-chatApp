@@ -1,5 +1,7 @@
 @use 'defs';
 @use 'grid';
+@use 'fonts';
+
 * { 
   margin: 0;
   padding: 0;
@@ -7,7 +9,6 @@
 }
 
 html{
-  font-size:16px;
   overflow:hidden;
 }
 
@@ -17,12 +18,11 @@ html{
 }
 
 body { 
-  font: 1.5rem Montserrat, Helvetica, sans-serif;
-  background-color:rgba(10,10,10,0.4);
-  color:#fff;
+  background-color:defs.$dim-black;
+  padding: defs.$mg-medium;
   &::after, &::before{
     z-index:-1;
-    background-color:rgba(10,10,10,0.4);
+    background-color:defs.$dim-black;
     @include defs.absoluteblock;//0 0 100 100
   }
   &::after{
@@ -30,19 +30,26 @@ body {
     z-index:-2;
 }}
 
+aside {
+  background-color:defs.$dim-black;
+  .btn--leave{
+    padding:defs.$mg-medium;
+    background-color:defs.$gybe-orange;
+  }
+  .users__p {
+    padding:defs.$mg;
+    border-bottom:4px solid defs.$gybe-orange;
+}}
 //dynamic area
-div.info{
-  font-size:1rem;
-  text-align:right;
-  padding-right:0.5rem;
-}
-
 #messages { //ul
   list-style-type: none;
   > li { 
-    padding: 0.5rem;
-    span > {background:rgba(80, 48, 39,0.3);}
-    &:nth-child(odd) > span{ background:rgba(180,180,180,0.4); }
+    &:nth-child(odd) > span{ 
+    background:rgba(180,180,180,0.4); }
+    > span  {
+      display:inline-block;
+      padding: defs.$mg-small;
+    background:rgba(80, 48, 39,0.3);}
 }}
 
 //input
@@ -52,15 +59,15 @@ form {
   flex-direction:row;
   justify-content:space-between;
   background: rgba(0,0,0,0.5);
-  padding: 0.5rem;
+  padding: defs.$mg;
   font-size:1.5rem;
   input { 
     border:none;
     padding: inherit;
-    flex-basis:90% 1 2;
+    flex:90% 1 2;
     margin-right: 0.5%;
   }
   .btn--send { 
-    flex-basis:9% 1 1;
+    flex:9% 1 1;
     background: rgb(130, 224, 255);
 }}

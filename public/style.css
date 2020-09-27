@@ -1,8 +1,9 @@
 body {
   display: grid;
-  height: 100vh;
+  grid-column-gap: 1rem;
   grid-template-columns: minmax(200px, 1fr) minmax(400px, 3fr);
   grid-template-areas: "aside main";
+  height: 100vh;
 }
 
 main {
@@ -12,17 +13,53 @@ main {
 main #messages {
   align-self: start;
   overflow: auto;
-  height: 90vh;
-  width: 100%;
+  margin: auto;
+  width: 90%;
 }
 main .bottomBar {
   align-self: end;
-  min-height: 75px;
-  height: 10vh;
 }
 
 aside {
+  display: grid;
   grid-area: aside;
+}
+aside .btn--leave {
+  align-self: end;
+}
+aside .users__p {
+  align-self: start;
+  justify-self: center;
+}
+
+@font-face {
+  src: url("../fonts/typewcond_regular.woff");
+  font-family: "typewritter";
+}
+@font-face {
+  src: url("../fonts/Heartless.woff");
+  font-family: "heartless";
+}
+@font-face {
+  src: url("../fonts/Montserrat.woff");
+  font-family: "Montserrat";
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  font: 1.8rem typewritter, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.users__p {
+  font: 2rem "Montserrat", "sans-serif";
+}
+
+div.info {
+  font-size: 1rem;
+  text-align: right;
 }
 
 * {
@@ -32,7 +69,6 @@ aside {
 }
 
 html {
-  font-size: 16px;
   overflow: hidden;
 }
 
@@ -42,9 +78,8 @@ html {
 }
 
 body {
-  font: 1.5rem Montserrat, Helvetica, sans-serif;
   background-color: rgba(10, 10, 10, 0.4);
-  color: #fff;
+  padding: 1rem;
 }
 body::after, body::before {
   z-index: -1;
@@ -64,23 +99,28 @@ body::after {
   z-index: -2;
 }
 
-div.info {
-  font-size: 1rem;
-  text-align: right;
-  padding-right: 0.5rem;
+aside {
+  background-color: rgba(10, 10, 10, 0.4);
+}
+aside .btn--leave {
+  padding: 1rem;
+  background-color: #553227;
+}
+aside .users__p {
+  padding: 0.5rem;
+  border-bottom: 4px solid #553227;
 }
 
 #messages {
   list-style-type: none;
 }
-#messages > li {
-  padding: 0.5rem;
-}
-#messages > li span > {
-  background: rgba(80, 48, 39, 0.3);
-}
 #messages > li:nth-child(odd) > span {
   background: rgba(180, 180, 180, 0.4);
+}
+#messages > li > span {
+  display: inline-block;
+  padding: 0.25rem;
+  background: rgba(80, 48, 39, 0.3);
 }
 
 form {
@@ -95,11 +135,11 @@ form {
 form input {
   border: none;
   padding: inherit;
-  flex-basis: 90% 1 2;
+  flex: 90% 1 2;
   margin-right: 0.5%;
 }
 form .btn--send {
-  flex-basis: 9% 1 1;
+  flex: 9% 1 1;
   background: #82e0ff;
 }
 
