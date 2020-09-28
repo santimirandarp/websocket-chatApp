@@ -3,35 +3,24 @@
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <title>~Chat</title>
-    <style>
-body{
-  background-color:#212121;
-  color:#f4f4f4;
-  display:grid;
-  place-items:center;
-}
-.logginForm{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:2rem;
-}
-    </style>
-
+    <link rel="stylesheet" href="form.css"/>
   </head>
 
   <body>
-      <form class="logginForm" method="GET" action="./chat.html">
+      <form class="logginForm" action="/chat" method="GET">
         <div>
-        <label  for="input">Name:</label>
+        <label for="m">Name:</label>
         <input name="User" type="text"  id="m" required autocomplete="off" />
         </div>
-        <select name="Room">
+      <div>
+        <label for="Room">Choose a room:</label>
+        <select id="Room" name="Room">
+          <option value="">--Make your Choice--</option>
           <option value="science">Science</option>
           <option value="programming">Programming</option>
-          <option value="life">Life</option>
+          <option value="chat">Just Chat</option>
         </select>
+      </div>
         <button type="submit">Send</button>
       </form>
   </body>

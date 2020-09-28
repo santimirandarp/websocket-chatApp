@@ -3,10 +3,11 @@ body{
   display:grid;
   grid-column-gap:1rem;
   grid-template-columns:minmax(200px, 1fr) minmax(400px, 3fr);
-  grid-template-areas:
-  "aside main";
-  height:100vh;
+  grid-template-areas: "aside main";
+  height:100%;//of the viewport
 }
+//main and aside
+body > * { height:calc(100vh - #{defs.$mg-medium}); }
 
 main {
   grid-area:main;
@@ -15,6 +16,7 @@ main {
     align-self:start;
     overflow:auto;
     margin:auto;
+    height:100%;//of the parent (main)
     width:90%;
   }
   .bottomBar{

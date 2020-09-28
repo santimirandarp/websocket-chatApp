@@ -5,36 +5,40 @@ const http = require("http").createServer(app)
 const io = require("socket.io")(http)
 const port = process.env.PORT || 3000
 const path = require("path")
+const moment = require("moment")
 
+let User;
+let time;
+let Room;
 //serve files
 app.get("/", (req, res)=> res.sendFile(path.join(__dirname, "public", "form.html")))
 app.get("/chat", (req, res)=> {
-  res.sendFile(path.join(__dirname, "public", "chat.html"))
+  User = req.query.User
+  Room = req.query.Room
+  time = moment().format()
+  res.sendFile(path.join(__dirname, "public", `${Room}.html`))
 })
 
 let users = 0
 // a socket connects(imagine a tube)
-io.on("connection", socket=>{
+io.on("connection", socket => {
   users++
   //any new connection, emits for all users
-  io.emit("users", {users:users})
+  io.emit("User Connects", {users:users, newUser:User, time:time})
   
-  //emits for all but for the one connecting
-  socket.broadcast.emit("newUser", {newUser:"New User Connected"})
-
   //emits only for the one connected
-  socket.emit("welcome", {welcome:`Welcome to the chat`})
+  socket.emit("Welcome", {welcome:`Welcome ${User}!`})
   
   //if a socket disconnects
-  socket.on("disconnect", (socket)=> { //tell everyone
+  socket.on("disconnect", socket => { //tell everyone
       users--
-      io.emit("users", {nou:users, msg:"A user has left the room"})
+      io.emit("User Disconnects", {users:users, room:Room, newUser:User, time:time})
     })
   
   //if a socket emits a message, tell everyone
-  socket.on("chat message", msg => io.emit("chat message", msg))
+  socket.on("Chat Message", msg => io.emit("Chat Message", {msg:msg, newUser:User}))
 })
 
 
-app.use(express.static("public"))
+app.use(express.static("assets"))
 http.listen(port, () => console.log(`listening on port ${port} `))

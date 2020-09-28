@@ -3,7 +3,11 @@ body {
   grid-column-gap: 1rem;
   grid-template-columns: minmax(200px, 1fr) minmax(400px, 3fr);
   grid-template-areas: "aside main";
-  height: 100vh;
+  height: 100%;
+}
+
+body > * {
+  height: calc(100vh - 1rem);
 }
 
 main {
@@ -14,6 +18,7 @@ main #messages {
   align-self: start;
   overflow: auto;
   margin: auto;
+  height: 100%;
   width: 90%;
 }
 main .bottomBar {
@@ -32,18 +37,6 @@ aside .users__p {
   justify-self: center;
 }
 
-@font-face {
-  src: url("../fonts/typewcond_regular.woff");
-  font-family: "typewritter";
-}
-@font-face {
-  src: url("../fonts/Heartless.woff");
-  font-family: "heartless";
-}
-@font-face {
-  src: url("../fonts/Montserrat.woff");
-  font-family: "Montserrat";
-}
 html {
   font-size: 16px;
 }
@@ -58,7 +51,7 @@ body {
 }
 
 div.info {
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: right;
 }
 
@@ -69,6 +62,7 @@ div.info {
 }
 
 html {
+  height: 100%;
   overflow: hidden;
 }
 

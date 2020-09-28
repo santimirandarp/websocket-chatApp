@@ -1,0 +1,16 @@
+
+body{
+  background-color:#212121;
+  color:#f4f4f4;
+  display:grid;
+  place-items:center;
+}
+form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+> * {
+  margin:0.4rem;
+}}

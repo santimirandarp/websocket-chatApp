@@ -1,1 +1,2 @@
-sass public/sass/style.scss public/style.css  --watch 
+#!/usr/bin/env bash
+sass assets/sass/:assets/  --watch 
