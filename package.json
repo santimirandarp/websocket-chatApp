@@ -12,13 +12,8 @@
     "url": "git+https://github.com/santimirandarp/share.git"
   },
   "keywords": [
-    "real",
-    "time",
     "chat",
     "share",
-    "ideas",
-    "chat",
-    "with",
     "friends"
   ],
   "author": "Santiago Miranda",
@@ -30,7 +25,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "moment": "^2.29.0",
-    "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -12,9 +12,9 @@ let time;
 let Room;
 //serve files
 app.get("/", (req, res)=> res.sendFile(path.join(__dirname, "public", "form.html")))
-app.get("/chat", (req, res)=> {
-  User = req.query.User
-  Room = req.query.Room
+app.get("/chat/:user/:room", (req, res)=> {
+  User = req.params.user
+  Room = req.params.room
   time = moment().format()
   res.sendFile(path.join(__dirname, "public", `${Room}.html`))
 })
@@ -39,6 +39,6 @@ io.on("connection", socket => {
   socket.on("Chat Message", msg => io.emit("Chat Message", {msg:msg, newUser:User}))
 })
 
-
+//middleware
 app.use(express.static("assets"))
 http.listen(port, () => console.log(`listening on port ${port} `))

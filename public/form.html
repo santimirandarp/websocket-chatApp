@@ -7,7 +7,7 @@
   </head>
 
   <body>
-      <form class="logginForm" action="/chat" method="GET">
+      <form action="/chat" class="logginForm" >
         <div>
         <label for="m">Name:</label>
         <input name="User" type="text"  id="m" required autocomplete="off" />
@@ -23,5 +23,14 @@
       </div>
         <button type="submit">Send</button>
       </form>
+      <script>
+      document.querySelector("form").addEventListener("submit", (e) => { 
+      e.preventDefault()
+      console.log("got it")
+      const user = document.getElementById("m").value
+      const room = document.getElementById("Room").value
+      window.location.replace(`chat/${user}/${room}`);
+              })
+      </script>
   </body>
 </html>
