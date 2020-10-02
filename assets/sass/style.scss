@@ -31,15 +31,19 @@ aside {
 }}
 //dynamic area
 #messages { //ul
-
   > li { 
+     margin-top:defs.$mg; 
     &:nth-child(odd) > span{ 
-      background:rgba(180,180,180,0.4); 
+      background:defs.$greyItems;
     }
     > span  {
       display:inline-block;
-      padding: defs.$mg-small;
-    background:rgba(80, 48, 39,0.3);}
+      border-radius:0.4rem;
+      padding: defs.$mg-p3 defs.$mg;
+      padding-top: calc( #{defs.$mg-p3} + 0.3rem);
+      background:defs.$lightOrangeItems;
+      box-shadow:1px 1px 1px rgba(70,70,70,0.7);
+    }
 }}
 
 //input
