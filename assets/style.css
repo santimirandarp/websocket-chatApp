@@ -1,9 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+ul {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+}
+
 body {
   display: grid;
   grid-column-gap: 1rem;
   grid-template-columns: minmax(200px, 1fr) minmax(400px, 3fr);
   grid-template-areas: "aside main";
   height: 100%;
+  align-content: center;
 }
 
 body > * {
@@ -37,10 +60,6 @@ aside .users__p {
   justify-self: center;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
   font: 1.8rem typewritter, Helvetica, sans-serif;
   color: #fff;
@@ -53,22 +72,6 @@ body {
 div.info {
   font-size: 0.9rem;
   text-align: right;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  height: 100%;
-  overflow: hidden;
-}
-
-.btn {
-  border: none;
-  cursor: pointer;
 }
 
 body {
@@ -97,17 +100,16 @@ aside {
   background-color: rgba(10, 10, 10, 0.4);
 }
 aside .btn--leave {
+  color: white;
+  font-variant: small-caps;
   padding: 1rem;
-  background-color: #553227;
+  background-color: #c82929f5;
 }
 aside .users__p {
   padding: 0.5rem;
   border-bottom: 4px solid #553227;
 }
 
-#messages {
-  list-style-type: none;
-}
 #messages > li:nth-child(odd) > span {
   background: rgba(180, 180, 180, 0.4);
 }

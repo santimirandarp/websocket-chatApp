@@ -1,22 +1,8 @@
+@use 'resets';
 @use 'defs';
 @use 'grid';
 @use 'fonts';
 
-* { 
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
-}
-
-html{
-  height:100%;
-  overflow:hidden;
-}
-
-.btn {
-  border:none;
-  cursor:pointer;
-}
 
 body { 
   background-color:defs.$dim-black;
@@ -34,8 +20,10 @@ body {
 aside {
   background-color:defs.$dim-black;
   .btn--leave{
+    color: white;
+    font-variant: small-caps;
     padding:defs.$mg-medium;
-    background-color:defs.$gybe-orange;
+    background-color:defs.$reddish;
   }
   .users__p {
     padding:defs.$mg;
@@ -43,10 +31,11 @@ aside {
 }}
 //dynamic area
 #messages { //ul
-  list-style-type: none;
+
   > li { 
     &:nth-child(odd) > span{ 
-    background:rgba(180,180,180,0.4); }
+      background:rgba(180,180,180,0.4); 
+    }
     > span  {
       display:inline-block;
       padding: defs.$mg-small;

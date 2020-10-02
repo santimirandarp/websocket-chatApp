@@ -1,10 +1,11 @@
-@use 'defs';
+@use "defs";
 body{
   display:grid;
   grid-column-gap:1rem;
   grid-template-columns:minmax(200px, 1fr) minmax(400px, 3fr);
   grid-template-areas: "aside main";
   height:100%;//of the viewport
+  align-content:center;
 }
 //main and aside
 body > * { height:calc(100vh - #{defs.$mg-medium}); }
