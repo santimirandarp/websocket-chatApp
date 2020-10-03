@@ -7,15 +7,15 @@ const port = process.env.PORT || 3000
 const path = require("path")
 
 //variables
-let User;
-let Room;
+let user;
+let room;
 
 //serve files
 app.get("/", (req, res)=> res.sendFile(path.join(__dirname, "public", "form.html")))
 app.get("/app/:user/:room/", (req, res)=> {
-  User = req.params.user
-  Room = req.params.room
-  res.sendFile(path.join(__dirname, "public", `${Room}.html`))
+  user = req.params.user
+  room = req.params.room
+  res.sendFile(path.join(__dirname, "public", `${room}.html`))
 })
 
 let users = 0
@@ -23,18 +23,18 @@ let users = 0
 io.on("connection", socket => {
   users++
   //any new connection, emits for all users but the new
-  socket.broadcast.emit("User Connects", {users:users, newUser:User})
+  socket.broadcast.emit(`User Connects ${room}`, {users:users, room:room, newUser:user})
 
   //emits only for the one connected
-  socket.emit("Welcome", {welcome:`Welcome ${User}!`, myName:User})
+  socket.emit("Welcome", {welcome:`Welcome ${user}!`, myName:user, room:room})
 
   //if a socket emits a message, tell everyone
-  socket.on("Chat Message", msg => io.emit("Chat Message", 
-    {msg:msg.msg, sender:msg.sender}))
+  socket.on(`Chat Message`, msg => io.emit(`Chat Message ${msg.room}`, 
+    {msg:msg.msg, sender:msg.sender, room:room}))
 //if a socket disconnects
 socket.on("disconnect", socket => { //tell everyone
   users--
-  io.emit("User Disconnects", {users:users, room:Room, newUser:User})
+  io.emit("User Disconnects", {users:users, room:room, newUser:user})
 })
 
 })

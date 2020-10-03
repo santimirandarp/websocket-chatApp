@@ -13,12 +13,12 @@ document.addEventListener("submit", e => {
   const msg = e.target.elements.m.value
   e.target.elements.m.value="" //clear input.
 
-  socket.emit('Chat Message', {msg:msg, sender:myName}) //input value to server
+  socket.emit('Chat Message', {msg:msg, sender:myName, room:"chat"}) //input value to server
   return false;
 });
 
 //data coming from server
-socket.on('Chat Message', msg => {
+socket.on('Chat Message chat', msg => {
   ul.innerHTML+=`
     <li>
       <span class="userInfo">${msg.sender}: ${msg.msg}</span>
@@ -27,7 +27,7 @@ socket.on('Chat Message', msg => {
 })
 
 //data from server
-socket.on("User Connects", data => {
+socket.on("User Connects chat", data => {
   nou.innerHTML=`Users: ${data.users}`
   users__ul.innerHTML+=` <li><span>${data.newUser}</span></li>`
   //emit to server message Update New with the new user (data.newUser) name.
