@@ -5,7 +5,7 @@ const ul = document.getElementById("messages")
 const users__ul=document.getElementById("users__ul")
 const nou=document.getElementById("nou") //number of users
 const welcome=document.getElementById("welcome")
-
+let myName;
 //on submit input/form
 document.addEventListener("submit", e => {
 
@@ -13,7 +13,7 @@ document.addEventListener("submit", e => {
   const msg = e.target.elements.m.value
   e.target.elements.m.value="" //clear input.
 
-  socket.emit('Chat Message', msg) //input value to server
+  socket.emit('Chat Message', {msg:msg, sender:myName}) //input value to server
   return false;
 });
 
@@ -21,19 +21,26 @@ document.addEventListener("submit", e => {
 socket.on('Chat Message', msg => {
   ul.innerHTML+=`
     <li>
-      <span class="userInfo">${msg.newUser}: ${msg.msg}</span>
+      <span class="userInfo">${msg.sender}: ${msg.msg}</span>
     </li>`
   ul.scrollTop=ul.scrollHeight;
 })
 
 //data from server
-socket.on("User Connects", msg => {
-  nou.innerHTML=`Users: ${msg.users}`
-  users__ul.innerHTML+=` <li data-time=${msg.time}> <span>${msg.newUser}</span> </li>`
+socket.on("User Connects", data => {
+  nou.innerHTML=`Users: ${data.users}`
+  users__ul.innerHTML+=` <li><span>${data.newUser}</span></li>`
+  //emit to server message Update New with the new user (data.newUser) name.
+})
+
+socket.on("Welcome", msg => {
+  welcome.innerHTML=msg.welcome
+  myName = msg.myName
 })
 
 socket.on('User Disconnects', msg => {
   const allLis = users__ul.querySelector('li')
   allLis.forEach(li=> li["data-time"]==msg.time&&li.remove())
 })
-socket.on("Welcome", msg => welcome.innerHTML=`${msg.welcome}`)
+
+

@@ -1,11 +1,13 @@
+@use "../amaranth.css";//amaranthregular
+@use "../enriqueta.css";//enriquetaregular
+@use "../oxygen-mon.css";//oxygen_monoregular
 
 body{
-  font: 1.8rem typewritter, Helvetica, sans-serif;
+  font: 1.8rem "oxygen_monoregular", Helvetica, sans-serif;
   color:#fff;
 }
-.users__p{ font: 2.0rem "Montserrat", "sans-serif"; }
-  
-div.info{
-  font-size:0.9rem;
-  text-align:right;
-}
+.users__p{ font: 2.0rem "amaranthregular", "sans-serif"; }
+
+.btn--leave, .btn--send{font-family:"enriquetaregular", "sans-serif"}
+
+div.info{ font-size:0.9rem; }

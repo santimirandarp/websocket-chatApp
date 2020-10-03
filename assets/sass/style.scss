@@ -6,6 +6,7 @@
 
 body { 
   background-color:defs.$dim-black;
+  text-align:center;
   padding: defs.$mg-medium;
   &::after, &::before{
     z-index:-1;
@@ -21,7 +22,6 @@ aside {
   background-color:defs.$dim-black;
   .btn--leave{
     color: white;
-    font-variant: small-caps;
     padding:defs.$mg-medium;
     background-color:defs.$reddish;
   }
@@ -31,6 +31,7 @@ aside {
 }}
 //dynamic area
 #messages { //ul
+  text-align:left;
   > li { 
      margin-top:defs.$mg; 
     &:nth-child(odd) > span{ 
