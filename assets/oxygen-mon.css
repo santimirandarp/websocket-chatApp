@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'oxygen_monoregular';
-    src: url('oxygenmono-regular-webfont.woff2') format('woff2'),
-         url('oxygenmono-regular-webfont.woff') format('woff');
+    src: url('./fonts/oxygenmono-regular-webfont.woff2') format('woff2'),
+         url('./fonts/oxygenmono-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

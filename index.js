@@ -40,6 +40,7 @@ socket.on("disconnect", socket => { //tell everyone
 })
 
 //middleware
+app.use("/assets/fonts/", express.static(__dirname+"/assets/fonts/"))
 app.use("/assets", express.static(__dirname+"/assets"))
 
 http.listen(port, () => console.log(`listening on port ${port} `))
