@@ -34,7 +34,7 @@ io.on("connection", socket => {
 //if a socket disconnects
 socket.on("disconnect", socket => { //tell everyone
   users--
-  io.emit("User Disconnects", {users:users, room:Room, newUser:User, time:time})
+  io.emit("User Disconnects", {users:users, room:Room, newUser:User})
 })
 
 })
