@@ -20,6 +20,10 @@ ul {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   display: grid;
   grid-column-gap: 1rem;
@@ -107,20 +111,25 @@ aside .users__p {
 }
 body {
   font: 1.8rem "oxygen_monoregular", Helvetica, sans-serif;
-  color: #fff;
 }
 
 .users__p {
   font: 2rem "amaranthregular", "sans-serif";
 }
 
+.btn--leave, .btn--send {
+  font-family: small-caps "enriquetaregular", "sans-serif";
+  letter-spacing: 1px;
+}
+
 div.info {
   font-size: 0.9rem;
-  text-align: right;
 }
 
 body {
   background-color: rgba(10, 10, 10, 0.4);
+  color: #e4e4e4;
+  text-align: center;
   padding: 1rem;
 }
 body::after, body::before {
@@ -145,9 +154,8 @@ aside {
   background-color: rgba(10, 10, 10, 0.4);
 }
 aside .btn--leave {
-  color: white;
-  font-variant: small-caps;
-  padding: 1rem;
+  color: #e4e4e4;
+  padding: 0.5rem;
   background-color: #c82929f5;
 }
 aside .users__p {
@@ -155,6 +163,9 @@ aside .users__p {
   border-bottom: 4px solid #553227;
 }
 
+#messages {
+  text-align: left;
+}
 #messages > li {
   margin-top: 0.5rem;
 }
@@ -170,14 +181,18 @@ aside .users__p {
   box-shadow: 1px 1px 1px rgba(70, 70, 70, 0.7);
 }
 
+div.info {
+  text-align: right;
+}
+
 form {
   /*form children*/
+  font-size: 1.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background: rgba(0, 0, 0, 0.5);
   padding: 0.5rem;
-  font-size: 1.5rem;
 }
 form input {
   border: none;

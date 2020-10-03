@@ -6,6 +6,7 @@
 
 body { 
   background-color:defs.$dim-black;
+  color:#e4e4e4;
   text-align:center;
   padding: defs.$mg-medium;
   &::after, &::before{
@@ -21,8 +22,8 @@ body {
 aside {
   background-color:defs.$dim-black;
   .btn--leave{
-    color: white;
-    padding:defs.$mg-medium;
+    color:#e4e4e4;
+    padding:defs.$mg-p5;
     background-color:defs.$reddish;
   }
   .users__p {
@@ -46,16 +47,16 @@ aside {
       box-shadow:1px 1px 1px rgba(70,70,70,0.7);
     }
 }}
-
+div.info{text-align:right;}
 //input
 form { 
   /*form children*/
+  font-size:1.5rem;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
   background: rgba(0,0,0,0.5);
   padding: defs.$mg;
-  font-size:1.5rem;
   input { 
     border:none;
     padding: inherit;

@@ -2,12 +2,13 @@
 @use "../enriqueta.css";//enriquetaregular
 @use "../oxygen-mon.css";//oxygen_monoregular
 
-body{
-  font: 1.8rem "oxygen_monoregular", Helvetica, sans-serif;
-  color:#fff;
-}
+body{ font: 1.8rem "oxygen_monoregular", Helvetica, sans-serif; }
+
 .users__p{ font: 2.0rem "amaranthregular", "sans-serif"; }
 
-.btn--leave, .btn--send{font-family:"enriquetaregular", "sans-serif"}
+.btn--leave, .btn--send{
+font-family: small-caps "enriquetaregular", "sans-serif";
+letter-spacing:1px;
+}
 
 div.info{ font-size:0.9rem; }
